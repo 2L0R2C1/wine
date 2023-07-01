@@ -8,7 +8,7 @@ import torch.nn.functional as tnf       # 导入torch.nn.functional模块，用�
 class CSV_dataset(Dataset): # 定义一个CSV_dataset类，继承自Dataset类
 
     # 定义初始化方法，接受两个参数：dir是csv文件的路径，if_normalize是是否对数据进行归一化
-    def __init__(self, dir, if_normalize=False): 
+    def __init__(self, dir, if_normalize=True): 
         super().__init__() # 调用父类的初始化方法
 
         data = pd.read_csv(dir) # 使用pandas读取csv文件，默认以逗号分隔

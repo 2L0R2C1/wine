@@ -11,7 +11,7 @@ if __name__ == "__main__":
     data = CSV_dataset('wine_data.csv', if_normalize=False)  # 从csv文件中读取数据和目标，并将它们转换为torch张量
     data_train, data_test = data_split(data, 0.9)       # 将数据集按照0.9的比例划分为训练集和测试集
     batchSize = 30      # 设置每个批次的数据量为30
-    studyRate = 0.0002   # 设置学习率为0.001
+    studyRate = 0.001   # 设置学习率为0.001
 
     # 创建一个数据加载器实例data_loader，从训练集中按照批次大小和是否打乱顺序的设置获取数据
     data_loader = DataLoader(data_train, batch_size=batchSize, shuffle=True) 
@@ -102,8 +102,8 @@ if __name__ == "__main__":
 
     print("训练时间：",time.time() - start) 
 
-    save_path = './Model.pth' 
-    torch.save(net.state_dict(), save_path)
+    # save_path = './Model.pth' 
+    # torch.save(net.state_dict(), save_path)
 
     # 绘制训练损失和测试准确率的曲线
     plt.figure(figsize=(10, 5)) # 设置画布大小
